@@ -16,6 +16,7 @@ import static org.junit.jupiter.api.Assertions.*;
  * The test cases are executed together in a single transaction, by running the class.
  * testBook is used to store the book object created in the first test case
  * and is used in the following test cases.
+ * The tests does not effect the database.
  */
 
 @SpringBootTest
