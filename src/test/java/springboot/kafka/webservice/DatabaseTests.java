@@ -15,7 +15,7 @@ public class DatabaseTests {
     @Autowired
     BookRepository bookRepository;
 
-    static Book testBook; // ta bort(om du vill återställa testerna så att de kan köra enskilt)
+    static Book testBook;
 
     @BeforeEach
     void setUp() {
@@ -42,11 +42,11 @@ public class DatabaseTests {
         book.setGenre("C");
         //Sparar bok i DB
         //bookRepository.save(book);
-        testBook = bookRepository.save(book); // ta bort(om du vill återställa testerna så att de kan köra enskilt)
+        testBook = bookRepository.save(book);
 
         //Kontrollera att boken finns i databasen
-        //assertNotNull(bookRepository.findById(1L).get());
-        assertNotNull(bookRepository.findById(testBook.getId()).get().getAuthor());// ta bort(om du vill återställa testerna så att de kan köra enskilt)
+
+        assertNotNull(bookRepository.findById(testBook.getId()).get().getAuthor());
     }
 
     @Test
@@ -59,16 +59,15 @@ public class DatabaseTests {
         fetchedBook.setAuthor("D");
         bookRepository.save(fetchedBook);
         //Kontrollera att boken har uppdaterats
-        //assertNotNull(bookRepository.findById(1L).get().getAuthor());
-        assertEquals("D", bookRepository.findById(testBook.getId()).get().getAuthor()); // ta bort(om du vill återställa testerna så att de kan köra enskilt
+        assertEquals("D", bookRepository.findById(testBook.getId()).get().getAuthor());
     }
 
     @Test
     @Order(3)
     void removeBook() {
-        //assertNotNull(bookRepository.findById(1L).get());
-        assertNotNull(bookRepository.findById(testBook.getId()).get()); // ta bort(om du vill återställa testerna så att de kan köra enskilt)
-        bookRepository.deleteById(testBook.getId()); // ta bort(om du vill återställa testerna så att de kan köra enskilt)
-        assertTrue(bookRepository.findById(testBook.getId()).isEmpty()); // ta bort(om du vill återställa testerna så att de kan köra enskilt)
+
+        assertNotNull(bookRepository.findById(testBook.getId()).get());
+        bookRepository.deleteById(testBook.getId());
+        assertTrue(bookRepository.findById(testBook.getId()).isEmpty());
     }
 }
