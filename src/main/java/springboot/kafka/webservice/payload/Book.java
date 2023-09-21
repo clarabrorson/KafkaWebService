@@ -2,6 +2,14 @@ package springboot.kafka.webservice.payload;
 
 import jakarta.persistence.*;
 
+/**
+ * Book
+ * This class is used to create the Book entity
+ * It is used to store the book details in the database
+ * The table name is specified by the @Table annotation
+ * The class acts as a model for the database table
+ */
+
 @Entity
 @Table(name = "books")
 public class Book {
