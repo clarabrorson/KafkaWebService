@@ -8,6 +8,16 @@ import springboot.kafka.webservice.repository.BookRepository;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * DatabaseTests
+ * This class is used to test the database operations
+ * It uses BookRepository to perform the database operations
+ * The test cases are executed in the order specified by the @Order annotation
+ * The test cases are executed together in a single transaction, by running the class.
+ * Testbook is used to store the book object created in the first test case
+ * and is used in the following test cases.
+ */
+
 @SpringBootTest
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class DatabaseTests {
