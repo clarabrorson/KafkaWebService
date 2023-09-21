@@ -26,6 +26,10 @@ public class DatabaseTests {
     BookRepository bookRepository;
     static Book testBook;
 
+    @BeforeAll
+    static void beforeAll() {
+        System.out.println("Running all tests");
+    }
     @BeforeEach
     void setUp() {
         System.out.println("Before each test");
@@ -38,7 +42,7 @@ public class DatabaseTests {
 
     @AfterAll
     static void afterAll() {
-        System.out.println("After all tests");
+        System.out.println("Tests completed");
     }
 
     @Test
