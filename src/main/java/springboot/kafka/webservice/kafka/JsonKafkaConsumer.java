@@ -17,10 +17,12 @@ import springboot.kafka.webservice.payload.Book;
 public class JsonKafkaConsumer {
     private static final Logger LOGGER = LoggerFactory.getLogger(JsonKafkaConsumer.class);
 
-    @KafkaListener(topics = "bookTopic_json",groupId = "myGroup")
-    public void consume(Book book){
-
-        LOGGER.info(String.format("Json Message recieved -> %s",book.toString()));
-
+    @KafkaListener(topics = "bookTopic_json", groupId = "myGroup")
+    public void consume(Book book) {
+        try {
+            LOGGER.info(String.format("Json Message recieved -> %s", book.toString()));
+        } catch (Exception e) {
+            LOGGER.error(String.format("An error occurred while processing the Json message -> %s", e.getMessage()));
+        }
     }
 }

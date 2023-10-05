@@ -26,15 +26,17 @@ public class JsonKafkaProducer {
         this.kafkaTemplate = kafkaTemplate;
     }
 
-    public void sendMessage(Book data){
+    public void sendMessage(Book data) {
+        try {
+            LOGGER.info(String.format("Json Message sent -> %s", data.toString()));
+            Message<Book> message = MessageBuilder
+                    .withPayload(data)
+                    .setHeader(KafkaHeaders.TOPIC, "bookTopic_json")
+                    .build();
 
-        LOGGER.info(String.format("Json Message sent -> %s",data.toString()));
-        Message<Book> message = MessageBuilder
-                .withPayload(data)
-                .setHeader(KafkaHeaders.TOPIC,"bookTopic_json")
-                .build();
-
-        kafkaTemplate.send(message);
-
+            kafkaTemplate.send(message);
+        } catch (Exception e) {
+            LOGGER.error(String.format("An error occurred while sending the Json Message -> %s", e.getMessage()));
+        }
     }
 }

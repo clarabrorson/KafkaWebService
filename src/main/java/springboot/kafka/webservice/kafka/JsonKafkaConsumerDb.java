@@ -20,8 +20,7 @@ public class JsonKafkaConsumerDb {
     @KafkaListener(topics = "bookTopic_json",groupId = "otherGroup")
 
     public void writeToDb(Book book){
-        System.out.println("Skickar data till DB");
-        //Skicka data till databasen
+        System.out.println("Sending data to database");
         bookRepository.save(book);
     }
 
