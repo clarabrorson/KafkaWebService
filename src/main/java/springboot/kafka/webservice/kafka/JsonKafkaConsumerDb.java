@@ -20,8 +20,12 @@ public class JsonKafkaConsumerDb {
     @KafkaListener(topics = "bookTopic_json",groupId = "otherGroup")
 
     public void writeToDb(Book book){
-        System.out.println("Sending data to database");
-        bookRepository.save(book);
+        try {
+            System.out.println("Sending data to database");
+            bookRepository.save(book);
+        } catch (Exception e) {
+            System.out.println("An error occurred while sending the data to the database -> "+e.getMessage());
+        }
     }
 
 }
