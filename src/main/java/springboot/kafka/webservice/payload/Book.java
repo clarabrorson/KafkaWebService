@@ -8,6 +8,7 @@ import jakarta.persistence.*;
  * It is used to store the book details in the database
  * The table name is specified by the @Table annotation
  * The class acts as a model for the database table
+ * Annotation GeneratedValue is used to generate the id automatically in the database
  */
 
 @Entity
