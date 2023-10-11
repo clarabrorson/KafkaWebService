@@ -17,15 +17,11 @@ import springboot.kafka.webservice.payload.Book;
  */
 @Service
 public class JsonKafkaProducer {
-
     private static final Logger LOGGER = LoggerFactory.getLogger(JsonKafkaProducer.class);
-
     private KafkaTemplate<String, Book> kafkaTemplate;
-
     public JsonKafkaProducer(KafkaTemplate<String, Book> kafkaTemplate) {
         this.kafkaTemplate = kafkaTemplate;
     }
-
     public void sendMessage(Book data) {
         try {
             LOGGER.info(String.format("Json Message sent -> %s", data.toString()));

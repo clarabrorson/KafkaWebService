@@ -27,5 +27,4 @@ public class JsonKafkaConsumerDb {
             System.out.println("An error occurred while sending the data to the database -> "+e.getMessage());
         }
     }
-
 }

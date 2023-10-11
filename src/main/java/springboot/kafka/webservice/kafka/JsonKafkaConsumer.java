@@ -9,7 +9,7 @@ import springboot.kafka.webservice.payload.Book;
 /**
  * JsonKafkaConsumer
  * This class is used to consume the json message from the kafka topic
- * It uses User class as a payload
+ * It uses Book class as a payload
  * Annotation Service is used to mark the class as a service provider
  * Annotation KafkaListener is used to listen to the kafka topic provided
  */
